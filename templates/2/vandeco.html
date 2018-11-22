@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+     <title>One Page Resume</title>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<style type="text/css">
+    nav {
+          background-image: linear-gradient(to right, #00bfa5 , #18ffff);
+        }
+</style>
+     <style type="text/css">
+        * { margin: 0; padding: 0; }
+        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
+        .clear { clear: both; }
+        #page-wrap { width: 800px; margin: 40px auto 60px; }
+        #pic { float: right; margin: -30px 0 0 0; }
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+        p { margin: 0 0 16px 0; }
+        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+        a:hover { border-bottom-style: solid; color: black; }
+        ul { margin: 0 0 32px 17px; }
+        #objective { width: 500px; float: left; }
+        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right;  width: 150px; padding-right: 20px;float: left; height: 100px;   }
+        dd { width: 600px; float: right; }
+        dd.clear { float: none; margin: 0; height: 15px; }
+     </style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <script type="text/javascript">
+$(document).ready(function(e) {
+$("#submitbutton").click(function() {
+
+var ln = document.getElementById("page-wrap").innerHTML;
+
+$.ajax({
+        type: "POST",
+        url: "../../saveNewText.php",
+        data: {newText: ln}
+       })
+        .done( function( msg ) {alert( "Data Saved: " + msg );});
+
+});
+});     
+</script>
+<script type="text/javascript">
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+</head>
+
+<body>
+    <nav role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="../../home.php" class="brand-logo" style="font-size: 150%;">Résumé Builder</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="../../home.php" id="submitbutton">Save</a></li>
+        <li><a onclick="printDiv('page-wrap')">Print</a></li>
+        <li><a href="../../logout.php">Logout</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav teal accent-4">
+        <li><a href="#">Save</a></li>
+        <li><a href="#">Print</a></li>
+        <li><a href="#">Logout</a></li>
+     </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+    <div id="page-wrap" contenteditable="true">
+    
+        <div id="contact-info" class="vcard">
+        
+            <!-- Microformats! -->
+        
+            <h1 class="fn">VanDeco</h1>
+        
+            <p>
+                Cell: <span class="tel">555-666-7777</span><br />
+                Email: <a class="email" href="mailto:greatoldone@lovecraft.com">greatoldone@lovecraft.com</a>
+            </p>
+        </div>
+                
+        <div id="objective">
+            <p>
+                I am an outgoing and energetic (ask anybody) young professional, seeking a 
+                career that fits my professional skills, personality, and murderous tendencies. 
+                My squid-like head is a masterful problem solver and inspires fear in who gaze upon it. 
+                I can bring world domination to your organization. 
+            </p>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <dl>
+           
+            
+            <dt>Education</dt>
+            
+                <h2>Withering Madness University - Planet Vhoorl</h2>
+                <p><strong>Major:</strong> Public Relations<br />
+                   <strong>Minor:</strong> Scale Tending</p>
+          
+            
+            <dd class="clear"></dd>
+            
+            <dt>Skills</dt>
+         
+                <h2>Office skills</h2>
+                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
+                
+               
+     
+            
+            <dd class="clear"></dd>
+            
+            <dt>Experience</dt>
+          
+                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
+                <ul>
+                    <li>Inspired and won highest peasant death competition among servants</li>
+                    <li>Helped coordinate managers to grow cult following</li>
+                    <li>Provided untimely deaths to all who opposed</li>
+                </ul>
+                
+                      
+            
+            <dd class="clear"></dd>
+            
+            <dt>Hobbies</dt>
+            <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
+                <ul>
+                    <li>Worked on grass-roots promotional campaigns</li>
+                    <li>Reduced theft and property damage percentages</li>
+                    <li>Janitorial work, Laundry</li>
+                </ul> 
+            
+            <dd class="clear"></dd>
+            
+            <dt>References</dt>
+            <p>Available on request</p>
+            
+            <dd class="clear"></dd>
+        </dl>
+        
+        <div class="clear"></div>
+    
+    </div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../../js/materialize.js"></script>
+  <script src="../../js/init.js"></script>
+    <script>
+        
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+    </script>
+</body>
+
+</html>
